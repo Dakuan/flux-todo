@@ -1,4 +1,4 @@
-var EventEmitter = require('event').EventEmitter;
+// var EventEmitter = require('event').EventEmitter;
 var merge = require('react/lib/merge');
 
 var AppDispatcher = require('../dispatchers/app-dispatcher.js');
@@ -8,20 +8,20 @@ var TodoService = require('../services/todo-service.js');
 
 var CHANGE_EVENT = 'change';
 
-var TodoStore = merge(EventEmitter.prototype, {
+var TodoStore = merge({}, {
   areAllComplete: TodoService.areAllComplete,
   getAll: TodoService.getAll,
 
-  _emitChange: function() {
-    this.emit(CHANGE_EVENT);
-  },
+  // _emitChange: function() {
+  //   this.emit(CHANGE_EVENT);
+  // },
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
-  dispatcherIndex: Dispatcher.register(function(payload) {
+  dispatcherIndex: AppDispatcher.register(function(payload) {
     var action = payload.action;
 
     switch (action.actionType) {

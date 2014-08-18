@@ -1,43 +1,50 @@
 var merge = require('react/lib/merge');
 
 var TodoService = {
-  _storage: [],
+  _storage: {},
+
+  getAll: function() {
+     return this._storage;
+  },
+
+  get: function(id) {
+    return this._storage[id];
+  },
 
   create: function(text) {
-    id = Date.now();
-    _storage[id] = {
+    var id = Date.now();
+    return (this._storage[id] = {
       id: id,
       text: text,
       complete: false
-    };
+    });
   },
 
   update: function(id, attrs) {
-    var todo = todos[id];
-    todo = merge(todo, attrs);
+    return (this._storage[id] = merge(this.get(id), attrs));
   },
 
   updateAll: function(attrs) {
-    for (var id in todos) {
-      _update(id, attrs);
+    for (var id in this._storage) {
+      this._update(id, attrs);
     }
   },
 
   complete: function(id) {
-    _update(id, { complete: true });
+    this._update(id, { complete: true });
   },
 
   completeAll: function() {
-    _updateAll({ complete: true });
+    this._updateAll({ complete: true });
   },
 
   uncompleteAll: function() {
-    _updateAll({ complete: false });
+    this._updateAll({ complete: false });
   },
 
   areAllComplete: function() {
     for (var id in _storage) {
-      if (!_storage[id].complete) {
+      if (!this.get(id).complete) {
         return false;
       }
     }
@@ -45,13 +52,17 @@ var TodoService = {
   },
 
   destroy: function(id) {
-    delete _storage[id];
+    delete this._storage[id];
+  },
+
+  destroyAll: function() {
+    this._storage = {};
   },
 
   destroyCompleted: function() {
-    for (var id in _storage) {
-      if (_storage[id].complete) {
-        _destroy(id);
+    for (var id in this._storage) {
+      if (this._storage[id].complete) {
+        this._destroy(id);
       }
     }
   }
