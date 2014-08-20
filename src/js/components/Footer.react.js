@@ -4,7 +4,7 @@ var _ = require('lodash');
 var React = require('react');
 var PropTypes = React.PropTypes;
 
-var TodoActions = require('../actions/todo-actions.js');
+var TodoActions = require('../actions/todo-actions');
 
 var Footer = React.createClass({
   propTypes: {

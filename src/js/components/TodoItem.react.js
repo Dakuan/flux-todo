@@ -3,8 +3,8 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 
-var TodoActions = require('../actions/todo-actions.js');
-var TodoTextInput = require('./TodoTextInput.react.js');
+var TodoActions = require('../actions/todo-actions');
+var TodoTextInput = require('./TodoTextInput.react');
 
 var cx = require('react/lib/cx');
 

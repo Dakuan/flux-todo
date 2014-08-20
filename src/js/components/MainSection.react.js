@@ -4,8 +4,8 @@ _ = require('lodash');
 var React = require('react');
 var PropTypes = React.PropTypes;
 
-var TodoActions = require('../actions/todo-actions.js');
-var TodoItem = require('./TodoItem.react.js');
+var TodoActions = require('../actions/todo-actions');
+var TodoItem = require('./TodoItem.react');
 
 var MainSection = React.createClass({
   propTypes: {
