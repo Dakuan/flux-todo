@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/js/app.js",
   "dependencies": {
-    "gulp-browserify": "^0.5.0",
+    "es6-promise": "^1.0.0",
     "gulp": "^3.8.7",
+    "gulp-browserify": "^0.5.0",
     "gulp-concat": "^2.3.4",
     "react": "^0.11.1",
     "reactify": "^0.14.0"
