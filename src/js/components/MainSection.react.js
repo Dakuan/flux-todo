@@ -9,20 +9,20 @@ var TodoItem = require('./TodoItem.react');
 
 var MainSection = React.createClass({
   propTypes: {
-    source: PropTypes.object.isRequired,
+    todos: PropTypes.object.isRequired,
     areAllComplete: PropTypes.bool.isRequired
   },
 
   render: function() {
-    var source = this.props.source;
+    var todos = this.props.todos;
 
-    if (_.size(source) < 1) {
+    if (_.size(todos) < 1) {
       return null;
     }
 
-    var todos = [];
-    _.forIn(source, function(value, key) {
-      todos.push(<TodoItem key={key} todo={source[key]} />);
+    var list = [];
+    _.forIn(todos, function(value, key) {
+      list.push(<TodoItem key={key} todo={todos[key]} />);
     });
 
     return (
@@ -34,7 +34,7 @@ var MainSection = React.createClass({
           checked={this.props.areAllComplete ? 'checked' : '' }
         />
         <label htmlFor='toggle-all'>Mark all as complete</label>
-        <ul id='todo-list'>{todos}</ul>
+        <ul id='todo-list'>{list}</ul>
       </section>
     );
   }

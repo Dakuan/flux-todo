@@ -8,19 +8,19 @@ var TodoActions = require('../actions/todo-actions');
 
 var Footer = React.createClass({
   propTypes: {
-    source: PropTypes.object.isRequired
+    todos: PropTypes.object.isRequired
   },
 
   render: function() {
-    var source = this.props.source;
-    var total = _.size(source);
+    var todos = this.props.todos;
+    var total = _.size(todos);
 
     if (total === 0) {
       return null;
     }
 
     var completed = _.size(
-      _.filter(source, function(todo) {
+      _.filter(todos, function(todo) {
         return todo.complete;
       })
     );

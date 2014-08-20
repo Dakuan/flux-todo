@@ -6,11 +6,12 @@ var React = require('react');
 var Header = require('./Header.react');
 var Footer = require('./Footer.react');
 var MainSection = require('./MainSection.react');
+
 var TodoStore = require('../stores/todo-store');
 
 var _getTodoState = function() {
   return {
-    source: TodoStore.getAll(),
+    todos: TodoStore.getAll(),
     areAllComplete: TodoStore.areAllComplete()
   };
 };
@@ -24,7 +25,7 @@ var TodoApp = React.createClass({
     TodoStore.addChangeListener(this._onChange);
   },
 
-  componentWillMount: function() {
+  componentWillUnmount: function() {
     TodoStore.removeChangeListener(this._onChange);
   },
 
@@ -33,10 +34,10 @@ var TodoApp = React.createClass({
       <div>
         <Header />
         <MainSection
-          source={this.state.source}
+          todos={this.state.todos}
           areAllComplete={this.state.areAllComplete}
         />
-        <Footer source={this.state.source} />
+        <Footer todos={this.state.todos} />
       </div>
     );
   },
