@@ -8,6 +8,13 @@ var Footer = require('./Footer.react');
 var MainSection = require('./MainSection.react');
 var TodoStore = require('../stores/todo-store');
 
+var _getTodoState = function() {
+  return {
+    source: TodoStore.getAll(),
+    areAllComplete: TodoStore.areAllComplete()
+  };
+};
+
 var TodoApp = React.createClass({
   getInitialState: function() {
     return _getTodoState();
@@ -35,15 +42,9 @@ var TodoApp = React.createClass({
   },
 
   _onChange: function() {
-    this.setState(this._getTodoState());
-  },
-
-  _getTodoState: function() {
-    return {
-      source: TodoStore.getAll(),
-      areAllComplete: TodoStore.areAllComplete()
-    };
+    this.setState(_getTodoState());
   }
+
 });
 
 module.exports = TodoApp;
