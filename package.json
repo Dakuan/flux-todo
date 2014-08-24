@@ -48,10 +48,10 @@
   "browserify": {
     "transform": [
       "browserify-shim",
-      "coffeeify",
-      "reactify"
+      "coffee-reactify"
     ]
   },
+  "browserify-shim": {},
   "scripts": {
     "test": "jest"
   },

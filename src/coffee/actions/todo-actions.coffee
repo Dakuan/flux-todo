@@ -28,7 +28,7 @@ module.exports =
     })
 
   toggleComplete: (todo) ->
-    if todo.complete)
+    if todo.complete
       AppDispatcher.handleViewAction({
         actionType: TodoConstants.UNCOMPLETE,
         id: todo.id

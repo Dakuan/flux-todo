@@ -4,12 +4,11 @@ merge = require('react/lib/merge')
 AppDispatcher = require('../dispatchers/app-dispatcher')
 TodoConstants = require('../constants/todo-constants')
 
-TodoService = require('../services/todo-service.js')
+TodoService = require('../services/todo-service')
 
 CHANGE_EVENT = 'change'
 
 class TodoStore extends EventEmitter
-
   areAllComplete: -> TodoService.areAllComplete()
   getAll: -> TodoService.getAll()
 
@@ -27,7 +26,7 @@ class TodoStore extends EventEmitter
     switch action.actionType
       when TodoConstants.CREATE
         text = action.text.trim()
-        TodoService.create(text) if text !== ''
+        TodoService.create(text) if text != ''
 
       when TodoConstants.DESTROY  then TodoService.destroy(action.id)
       when TodoConstants.COMPLETE then TodoService.complete(action.id)
@@ -42,8 +41,8 @@ class TodoStore extends EventEmitter
         TodoService.update(action.id, { text: action.text })
 
       when TodoConstants.DESTROY_COMPLETED then TodoService.destroyCompleted()
-
       else return true
 
     @emitChange()
     true
+  )

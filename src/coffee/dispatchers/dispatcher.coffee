@@ -16,12 +16,14 @@ class Dispatcher
 
 
   @addPromise = (callback, payload) ->
-    @promises.push(new Promise((resolve, reject) ->
+    callback = (resolve, reject) ->
       if callback(payload)
         resolve(payload)
       else
         reject(new Error('Dispatcher callback unsuccessful'))
-    ))
+
+    promise = new Promise(callback)
+    @promises.push promise
 
   @clearPromises = -> @promises = []
 

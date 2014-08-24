@@ -1,4 +1,4 @@
-Dispatcher = require('./dispatcher.js')
+Dispatcher = require('./dispatcher')
 merge = require('react/lib/merge')
 
 class AppDispatcher extends Dispatcher

@@ -25,7 +25,7 @@ gulp.task 'browserify', ->
     bundler.bundle()
       .on('error', bundleErrorHandler)
       .pipe source('app.js')
-      .pipe gulp.dest('./dist/')
+      .pipe gulp.dest('./build/')
       .on('end', bundleLogger.end)
 
   bundler.on('update', bundle) if global.isWatching

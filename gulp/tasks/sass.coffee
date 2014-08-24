@@ -1,5 +1,7 @@
 gulp = require('gulp')
+util = require('gulp-util')
 sass = require('gulp-ruby-sass')
+
 handleErrors = require('../util/bundleErrorHandler')
 browserSync  = require('browser-sync')
 

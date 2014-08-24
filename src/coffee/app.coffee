@@ -1,9 +1,7 @@
-/*** @jsx React.DOM */
+# @cjsx React.DOM
 
 window.React = require('react')
-TodoApp = require('./components/TodoApp.react')
+TodoApp = require('./components/TodoApp')
 
-window.React.renderComponent(
-  <TodoApp />,
+window.React.renderComponent <TodoApp />,
   document.getElementById('app')
-)
