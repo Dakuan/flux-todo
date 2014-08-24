@@ -1,3 +1,4 @@
+gulp = require('gulp')
 coffeelint = require('gulp-coffeelint')
 paths = require('../config/paths')
 

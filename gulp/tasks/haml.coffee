@@ -1,13 +1,13 @@
 gulp = require('gulp')
 notify = require('gulp-notify')
-changed = requie('gulp-changed')
-rubyHaml = require('ruby-haml')
+changed = require('gulp-changed')
+rubyHaml = require('gulp-haml')
 minifyHtml = require('gulp-minify-html')
 
 gulp.task 'haml', ->
-  gulp.src paths.pages
+  gulp.src paths.src.haml
     .pipe changed('build/', { extension: '.html' })
-    .pipe rubyHaml()
+    .pipe haml()
     .pipe minifyHtml()
     .pipe gulp.dest('build/')
     .pipe notify 'haml to html conversion complete'

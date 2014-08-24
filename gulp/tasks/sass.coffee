@@ -1,10 +1,12 @@
 gulp = require('gulp')
 sass = require('gulp-ruby-sass')
-handleErrors = require('../util/handleErrors')
+handleErrors = require('../util/bundleErrorHandler')
 browserSync  = require('browser-sync')
 
+paths = require('../config/paths')
+
 gulp.task 'sass', ['images'], ->
-  gulp.src('src/sass/*.{sass, scss}')
+  gulp.src(paths.src.sass)
     .pipe(sass({
       compass: true
       bundleExec: true

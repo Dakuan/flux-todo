@@ -1,5 +1,5 @@
 gulp = require('gulp')
-browserSync = require('browserSync')
+browserSync = require('browser-sync')
 
 gulp.task 'browserSync', ['build'], ->
   browserSync.init(['build/**'], {
