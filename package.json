@@ -10,10 +10,12 @@
     "reactify": "^0.14.0"
   },
   "devDependencies": {
+    "browser-sync": "^1.3.6",
     "browserify": "^5.10.0",
-    "gulp-concat": "^2.3.4",
+    "gulp-changed": "^1.0.0",
     "gulp-coffee": "^2.1.1",
     "gulp-coffeelint": "^0.3.3",
+    "gulp-concat": "^2.3.4",
     "gulp-imagemin": "^1.0.0",
     "gulp-load-plugins": "^0.5.3",
     "gulp-notify": "^1.5.0",
