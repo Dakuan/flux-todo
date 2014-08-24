@@ -1,7 +1,7 @@
 {
   "name": "flux",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Sample react coffeescript todo app using flux with gulp build process",
   "main": "src/js/app.js",
   "dependencies": {
     "es6-promise": "^1.0.0",
@@ -12,13 +12,17 @@
   "devDependencies": {
     "browser-sync": "^1.3.6",
     "browserify": "^5.10.0",
+    "gulp-autoprefixer": "0.0.8",
     "gulp-changed": "^1.0.0",
     "gulp-coffee": "^2.1.1",
     "gulp-coffeelint": "^0.3.3",
     "gulp-concat": "^2.3.4",
+    "gulp-haml": "^0.1.0",
     "gulp-imagemin": "^1.0.0",
     "gulp-load-plugins": "^0.5.3",
+    "gulp-minify-html": "^0.1.4",
     "gulp-notify": "^1.5.0",
+    "gulp-prettify": "^0.3.0",
     "gulp-ruby-haml": "0.0.3",
     "gulp-ruby-sass": "^0.7.1",
     "gulp-size": "^1.0.0",
@@ -34,8 +38,11 @@
     "karma-safari-launcher": "^0.1.1",
     "lodash": "^2.4.1",
     "path": "^0.4.9",
+    "pretty-hrtime": "^0.2.1",
     "react-tools": "^0.11.1",
-    "require-dir": "^0.1.0"
+    "require-dir": "^0.1.0",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^1.0.2"
   },
   "browserify": {
     "transform": [
@@ -47,6 +54,6 @@
   "scripts": {
     "test": "jest"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "vyorkin",
+  "license": "MIT"
 }
