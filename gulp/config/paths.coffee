@@ -1,11 +1,14 @@
-src =
-  coffee: 'src/coffee/**/*.coffee'
-  sass: 'src/scss/**/*.{sass, scss}'
-  images: 'src/images/**/*.{png, jpg, gif}'
-  haml: 'src/haml/**/*.haml'
+module.exports =
+  src:
+    coffee: 'src/coffee/**/*.{coffee, cjsx}'
+    sass: 'src/scss/**/*.{sass, scss}'
+    images: 'src/images/**/*.{png, jpg, gif}'
+    haml: 'src/haml/**/*.haml'
+    root: 'src/'
 
-dst =
-  js: 'build/js'
-  css: 'build/css'
-  images: 'build/images'
-  html: 'build/'
+  dst:
+    js: 'build/js'
+    css: 'build/css'
+    images: 'build/images'
+    html: 'build/'
+    root: 'build/'

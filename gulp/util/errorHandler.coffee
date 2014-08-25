@@ -1,8 +1,8 @@
-notify = require('gulp-notify')
+notify = require 'gulp-notify'
 
 module.exports = (args...) ->
   notify.onError({
-    title: 'Compile error',
+    title: 'Compile error'
     message: "<%= error.message %>"
   }).apply(@, args)
 

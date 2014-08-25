@@ -1,7 +1,8 @@
-gulp = require('gulp')
-clean = require('gulp-clean')
-ignore = require('gulp-ignore')
+gulp   = require 'gulp'
+rimraf = require 'gulp-rimraf'
+ignore = require 'gulp-ignore'
 
-gulp.task 'clean', ->
-  gulp.src('build', { read: false })
-  .pipe(clean())
+gulp.task 'clean', ['setConfig'], ->
+  pattern = global.config.paths.dst.root + '**/*.*'
+  gulp.src pattern, { read: false }
+    .pipe rimraf()

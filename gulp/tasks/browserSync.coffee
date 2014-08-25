@@ -1,7 +1,8 @@
-gulp = require('gulp')
-browserSync = require('browser-sync')
+gulp        = require 'gulp'
+browserSync = require 'browser-sync'
 
-gulp.task 'browserSync', ['build'], ->
-  browserSync.init(['build/**'], {
-    server: { baseDir: ['build', 'src'] }
+gulp.task 'browserSync', ['setConfig', 'build'], ->
+  root = global.config.paths.dst.root
+  browserSync.init([root + '**'], {
+    server: { baseDir: root }
   })

@@ -1,7 +1,6 @@
-gulp = require('gulp')
-paths = require('../config/paths')
+gulp = require 'gulp'
 
-gulp.task 'watch', ['setWatch', 'browserSync'], ->
-  gulp.watch paths.src.sass, ['sass']
-  gulp.watch paths.src.images, ['images']
-  gulp.watch paths.src.haml, ['haml']
+gulp.task 'watch', ['setConfig', 'setWatch', 'browserSync'], ->
+  gulp.watch global.config.paths.src.sass, ['sass']
+  gulp.watch global.config.paths.src.images, ['images']
+  gulp.watch global.config.paths.src.haml, ['haml']

@@ -1,5 +1,5 @@
-util = require('gulp-util')
-prettyHrtime = require('pretty-hrtime')
+util         = require 'gulp-util'
+prettyHrtime = require 'pretty-hrtime'
 
 colors = util.colors
 

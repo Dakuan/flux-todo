@@ -1,1 +1,4 @@
-require('require-dir')('./tasks', { recursive: true })
+requireDir = require 'require-dir'
+
+requireDir './tasks/set'
+requireDir './tasks'

@@ -1,19 +1,15 @@
-gulp = require('gulp')
-util = require('gulp-util')
-sass = require('gulp-ruby-sass')
+gulp         = require 'gulp'
+util         = require 'gulp-util'
+sass         = require 'gulp-ruby-sass'
+browserSync  = require 'browser-sync'
+errorHandler = require '../util/errorHandler'
 
-handleErrors = require('../util/bundleErrorHandler')
-browserSync  = require('browser-sync')
-
-paths = require('../config/paths')
-
-gulp.task 'sass', ['images'], ->
-  gulp.src(paths.src.sass)
+gulp.task 'sass', ['setConfig', 'images'], ->
+  gulp.src(global.config.paths.src.sass)
     .pipe(sass({
-      compass: true
       bundleExec: true
       sourcemap: true
-      sourcemapPath: '../sass'
+      sourcemapPath: '../../src/scss'
     }))
-    .on('error', handleErrors)
-    .pipe(gulp.dest('build'))
+    .on('error', errorHandler)
+    .pipe(gulp.dest(global.config.paths.dst.css))
