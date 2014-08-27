@@ -49,6 +49,11 @@
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^1.0.2"
   },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "testFileExtensions": ["coffee", "js"],
+    "moduleFileExtensions": ["js", "json", "coffee", "litcoffee", "coffee.md"]
+  },
   "browserify": {
     "transform": [
       "browserify-shim",

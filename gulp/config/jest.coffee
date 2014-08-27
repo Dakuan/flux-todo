@@ -6,3 +6,4 @@ module.exports =
   ]
   testPathIgnorePatterns: ['node_modules']
   moduleFileExtensions: ['coffee', 'js', 'json', 'react']
+  scriptPreprocessor: 'preprocessor.js'
