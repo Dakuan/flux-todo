@@ -1,30 +1,28 @@
 Promise = require('es6-promise').Promise
-merge = require('react/lib/merge')
+merge   = require 'react/lib/merge'
 
 class Dispatcher
-  constructor: ->
-    @callbacks = []
-    @promises  = []
+  @_callbacks: []
+  @_promises: []
 
-  register: (callback) ->
-    @callbacks.push(callback)
-    @callbacks.length - 1
+  @register: (callback) ->
+    @_callbacks.push(callback)
+    @_callbacks.length - 1
 
-  dispatch: (payload) ->
-    @callbacks.forEach((callback) -> addPromise(callback, payload))
-    Promise.all(@promises).then(clearPromises)
+  @dispatch: (payload) =>
+    @_callbacks.forEach((callback) => @addPromise(callback, payload))
+    Promise.all(@_promises).then(@clearPromises)
 
-
-  @addPromise = (callback, payload) ->
-    callback = (resolve, reject) ->
+  @addPromise: (callback, payload) =>
+    cb = (resolve, reject) ->
       if callback(payload)
         resolve(payload)
       else
         reject(new Error('Dispatcher callback unsuccessful'))
 
-    promise = new Promise(callback)
-    @promises.push promise
+    promise = new Promise(cb)
+    @_promises.push promise
 
-  @clearPromises = -> @promises = []
+  @clearPromises: => @_promises = []
 
 module.exports = Dispatcher

@@ -12,3 +12,5 @@ module.exports =
     images: 'build/images'
     html: 'build/'
     root: 'build/'
+
+  spec: '__tests__'

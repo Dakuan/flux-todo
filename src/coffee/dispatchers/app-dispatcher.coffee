@@ -1,5 +1,5 @@
-Dispatcher = require('./dispatcher')
-merge = require('react/lib/merge')
+Dispatcher = require './dispatcher'
+merge      = require 'react/lib/merge'
 
 class AppDispatcher extends Dispatcher
   handleViewAction: (action) ->

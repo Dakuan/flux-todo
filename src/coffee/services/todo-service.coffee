@@ -1,36 +1,39 @@
-merge = require('react/lib/merge')
-copyProperties = require('react/lib/copyProperties')
+_              = require 'lodash'
+merge          = require 'react/lib/merge'
+copyProperties = require 'react/lib/copyProperties'
 
 class TodoService
-  constructor: -> @storage = {}
+  @_storage: {}
 
-  getAll: -> @storage
-  get: (id) -> @storage[id]
+  @getAll: => @_storage
+  @get: (id) => @_storage[id]
 
-  create: (text) ->
+  @create: (text) =>
     id = Date.now()
-    @storage[id] =
+    @_storage[id] =
       id: id
       text: text
       complete: false
 
-  update: (id, attrs) -> @storage[id] = copyProperties(@get(id), attrs)
-  updateAll: (attrs) -> @update(id, attrs) for id in @storage
+  @update: (id, attrs) =>
+    @_storage[id] = copyProperties(@get(id), attrs)
 
-  complete: (id) -> @update(id, { complete: true })
-  uncomplete: (id) -> @update(id, { complete: false })
+  @updateAll: (attrs) => @update(id, attrs) for id of @_storage
 
-  completeAll: -> @updateAll { complete: true }
-  uncompleteAll: -> @updateAll { complete: false }
+  @complete: (id) => @update(id, { complete: true })
+  @uncomplete: (id) => @update(id, { complete: false })
 
-  areAllComplete: -> _.any @storage, (id) -> !@get(id).complete
+  @completeAll: => @updateAll { complete: true }
+  @uncompleteAll: => @updateAll { complete: false }
 
-  destroy: (id) -> delete @storage[id]
-  destroyAll: -> @storage = {}
+  @areAllComplete: => _.any @_storage, (id) => not @get(id).complete
 
-  destroyCompleted: ->
-    _.chain @storage
-      .filter (id) -> @storage[id].complete
-      .each (id) -> @destroy(id)
+  @destroy: (id) => delete @_storage[id]
+  @destroyAll: => @_storage = {}
+
+  @destroyCompleted: =>
+    _.chain @_storage
+      .filter (id) => @_storage[id].complete
+      .each (id) => @destroy(id)
 
 module.exports = TodoService

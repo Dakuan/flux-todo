@@ -1,6 +1,6 @@
 jest.autoMockOff()
 
-AppDispatcher = require('../app-dispatcher.js')
+AppDispatcher = require '../../src/coffee/dispatchers/app-dispatcher'
 
 describe 'AppDispatcher', ->
   it 'sends actions to subscribers', ->
