@@ -1,7 +1,7 @@
 module.exports =
   src:
     coffee: 'src/coffee/**/*.{coffee, cjsx}'
-    sass: 'src/scss/**/*.{sass, scss}'
+    sass: 'src/scss/**/*.scss'
     images: 'src/images/**/*.{png, jpg, gif}'
     haml: 'src/haml/**/*.haml'
     root: 'src/'
