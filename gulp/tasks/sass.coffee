@@ -6,10 +6,6 @@ errorHandler = require '../util/errorHandler'
 
 gulp.task 'sass', ['setConfig', 'images'], ->
   gulp.src(global.config.paths.src.sass)
-    .pipe(sass({
-      bundleExec: true
-      sourcemap: true
-      sourcemapPath: '../../src/scss'
-    }))
+    .pipe(sass(global.config.sass))
     .on('error', errorHandler)
     .pipe(gulp.dest(global.config.paths.dst.css))
